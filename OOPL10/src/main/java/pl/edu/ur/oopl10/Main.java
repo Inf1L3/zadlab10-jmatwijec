@@ -1,6 +1,7 @@
 package pl.edu.ur.oopl10;
 
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -12,17 +13,33 @@ public class Main {
         WprowadzZKonsoli zad1 = new WprowadzZKonsoli();
         zad1.wprowadzInt();
         ExceptionHandled zad2 = new ExceptionHandled();
+        // zad3
         try {
             Scanner odczyt = new Scanner(System.in);
             System.out.println("wprowadz liczbe 1 ");
             int a = odczyt.nextInt();
             System.out.println("wprowadz liczbe 2");
             int b = odczyt.nextInt();
-            Dzielenie zad3= new Dzielenie(a,b);
+            Dzielenie zad3 = new Dzielenie(a, b);
         } catch (ArithmeticException e) {
             System.err.println("nie dzieli sie przez 0");
         }
+//zad4
+        int licznik = 0;
+        for (int i = 0; i < 100; i++) {
+            try {
 
+                int c = ThreadLocalRandom.current().nextInt(-10, 10 + 1); //stack
+                int d = ThreadLocalRandom.current().nextInt(-10, 10 + 1);
+                Dzielenie zad4 = new Dzielenie(c, d);
+            } catch (ArithmeticException e) {
+                System.err.println("nie dzieli sie przez 0");
+                licznik++;
+                if (licznik == 3) {
+                    System.exit(0);
+                }
+            }
+
+        }
     }
-
 }
