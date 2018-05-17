@@ -1,5 +1,8 @@
 package pl.edu.ur.oopl10;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -9,7 +12,8 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, IOException {
+        /*
         WprowadzZKonsoli zad1 = new WprowadzZKonsoli();
         zad1.wprowadzInt();
         ExceptionHandled zad2 = new ExceptionHandled();
@@ -24,9 +28,11 @@ public class Main {
         } catch (ArithmeticException e) {
             System.err.println("nie dzieli sie przez 0");
         }
+         */
 //zad4
+/*
         int licznik = 0;
-        for (int i = 0; i < 100; i++) {
+        while (true) {
             try {
 
                 int c = ThreadLocalRandom.current().nextInt(-10, 10 + 1); //stack
@@ -36,10 +42,13 @@ public class Main {
                 System.err.println("nie dzieli sie przez 0");
                 licznik++;
                 if (licznik == 3) {
+                    System.out.println("Uwaga 3 razy 0 wystapilo");
                     System.exit(0);
                 }
             }
 
         }
+         */ WprowadzZKonsoli zad5 = new WprowadzZKonsoli();
+         zad5.wczytaj();
     }
 }
