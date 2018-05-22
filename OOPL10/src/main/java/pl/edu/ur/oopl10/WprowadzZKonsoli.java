@@ -36,32 +36,38 @@ public class WprowadzZKonsoli {
 
     public void wczytaj() throws FileNotFoundException, IOException {
         // https://stackoverflow.com/questions/4716503/reading-a-plain-text-file-in-java
-        BufferedReader br = new BufferedReader(new FileReader("cos.txt"));
         try {
-            StringBuilder sb = new StringBuilder();
-            String line = br.readLine();
+            FileReader file = new FileReader("tessst.txt");
+            BufferedReader read = new BufferedReader(file);
 
-            while (line != null) {
-                sb.append(line);
-                sb.append(System.lineSeparator());
-                line = br.readLine();
+            String st = read.readLine();
+            while (st != null) {
+                System.out.println(st);
+                st = read.readLine();
             }
-            String everything = sb.toString();
-        } finally {
-            br.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("nie znaleziono pliku");
+        } catch (IOException e) {
+            System.out.println("blad");
         }
     }
 
-    public void zapisz() throws FileNotFoundException, UnsupportedEncodingException {
+    public void zapisz() throws FileNotFoundException, UnsupportedEncodingException, IOException {
         //stack
+
         try {
-            PrintWriter writer = new PrintWriter("cos.txt", "UTF-8");
+            FileWriter fileWriter = new FileWriter("tessst.txt");
+            PrintWriter printWriter = new PrintWriter(fileWriter);
             Scanner odczyt = new Scanner(System.in);
             System.out.println("wprowadadz liczby zeby zapisac ");
             String a = odczyt.nextLine();
-            writer.println(a);
+            printWriter.println(a);
+            printWriter.close();
         } catch (FileNotFoundException e) {
+
             System.out.println("nie znaleziono pliku");
+        } catch (IOException e) {
+            System.out.println("blad");
         }
     }
 }

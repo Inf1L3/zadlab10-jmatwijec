@@ -49,6 +49,7 @@ public class Main {
 
         }
          */ WprowadzZKonsoli zad5 = new WprowadzZKonsoli();
+         zad5.zapisz();
          zad5.wczytaj();
     }
 }
